@@ -1,0 +1,111 @@
+@import '../../base.scss';
+
+.title {
+    font-size: 24px;
+    color: #999;
+    height: 88px;
+    line-height: 88px;
+    padding-left: 32px;
+}
+
+.item {
+    display: flex;
+    position: relative;
+    height: 128px;
+    padding-left: 32px;
+
+    &:after {
+        content: '';
+        position: absolute;
+        transform-origin: center;
+        box-sizing: border-box;
+        pointer-events: none;
+        top: auto;
+        left: 32px;
+        right: 0;
+        bottom: 0;
+        transform: scaleY(0.5);
+        border-bottom: 1PX solid #e8e8e8;
+    }
+}
+
+.item.end::after {
+  display: none;
+}
+
+.image {
+    width: 44px;
+    height: 44px;
+    margin-top: 40px;
+    overflow: hidden;
+    border-radius: 22px;
+    background-size: cover;
+    background-color: #ccc;
+    background-image: url($imgUrl+'/assets/images/delItem.png');
+}
+
+.con {
+    flex: 7;
+    padding-left: 16px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    .name {
+        font-size: 32px;
+        color: #333;
+        padding-top: 16px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .info {
+        display: flex;
+        padding-top: 16px;
+        &>view {
+            flex: 1;
+            font-size: 24px;
+            color: #999;
+        }
+    }
+}
+
+.unit {
+    flex: 3;
+    padding-right: 32px;
+    text-align: right;
+    font-size: 32px;
+    color: #333;
+    line-height: 128px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.foot{
+  height: 96px;
+  box-sizing: border-box;
+  border-top: 1PX solid #e8e8e8;
+  text-align: center;
+  font-size: 32px;
+  line-height: 96px;
+  background-color: #fff;
+}
+
+.footEnd{
+  background-color: $blue;
+  color: #fff;
+}
+
+.confirmContent {
+  font-size: 36px;
+  text-align: center;
+  padding-top: 44px;
+}
+
+.confirmIcon {
+  position: relative;
+  margin-right: 8px;
+  top: -6px;
+}

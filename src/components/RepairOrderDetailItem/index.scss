@@ -1,0 +1,46 @@
+@import '../../base.scss';
+
+.item {
+  padding: 0 0 32px;
+  display: flex;
+  & > view {
+    box-sizing: border-box;
+  }
+}
+.itemName {
+  flex: 7;
+}
+.itemUnit {
+  flex: 2;
+}
+
+.itemName,
+.itemUnit,
+.itemPrice {
+  font-size: 28px;
+  color: #333;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.itemUnit,
+.itemPrice {
+  text-align: right;
+}
+.itemPrice {
+  flex: 3;
+  font-size: 34px;
+  font-family: 'number', Arial, Helvetica, sans-serif;
+  & > text::before {
+    content: '¥';
+    font-size: 28px;
+    margin-right: 4px;
+  }
+  &.red {
+    color: $red;
+    & > text::before {
+      content: '-¥';
+    }
+  }
+}

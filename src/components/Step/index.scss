@@ -1,0 +1,92 @@
+@import '../../base.scss';
+
+.step {
+  position: relative;
+  z-index: 2;
+  display: flex;
+
+  & > view:first-child {
+    text-align: left;
+  }
+
+  & > view:last-child {
+    text-align: right;
+  }
+
+  & > view:first-child,
+  & > view:last-child {
+    & > .stepIcon > view {
+      width: 56px;
+    }
+  }
+}
+
+.stepItem {
+  flex: 1;
+  text-align: center;
+}
+
+.stepTitle {
+  font-size: 24px;
+  color: #999;
+}
+
+.stepIcon {
+  padding: 8px 0;
+
+  & > view {
+    display: inline-block;
+    height: 32px;
+    width: 80px;
+    background-color: #fff;
+  }
+
+  & > view > view {
+    display: inline-block;
+    height: 32px;
+    width: 32px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+
+.stepInfo {
+  font-size: 30px;
+  color: #666;
+}
+
+.con {
+  position: relative;
+}
+
+.stepLineCon {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  display: flex;
+  padding-top: 64px;
+  z-index: 1;
+}
+
+.stepLine {
+  flex: 1;
+  height: 6px;
+  background-color: #ccc;
+}
+
+.stepLineCur {
+  background-color: #00c29e;
+}
+.state_0 > .stepIcon > view > view {
+  background-image: url($imgUrl+'/assets/images/step0.png');
+}
+
+.state_1 > .stepIcon > view > view {
+  background-image: url($imgUrl+'/assets/images/step1.png');
+}
+
+.state_2 > .stepIcon > view > view {
+  background-image: url($imgUrl+'/assets/images/step2.png');
+}

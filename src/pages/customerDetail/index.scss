@@ -1,0 +1,256 @@
+@import '../../base.scss';
+
+.flex {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.head {
+    height: 180px;
+    box-sizing: border-box;
+    background-color: $blue;
+    display: flex;
+    padding: 32px;
+}
+
+.foot {
+    height: 96px;
+    box-sizing: border-box;
+    border-top: 1PX solid #e8e8e8;
+    text-align: center;
+    font-size: 32px;
+    line-height: 96px;
+
+    &>view {
+        transition: background-color 0.3s;
+
+        &:active {
+            background-color: #efefef;
+        }
+    }
+}
+
+.footEnd {
+    position: relative;
+
+    &::after {
+        position: absolute;
+        content: '';
+        width: 1PX;
+        background-color: #e8e8e8;
+        left: 0;
+        top: 20px;
+        bottom: 20px;
+        margin: auto;
+        display: block;
+    }
+
+    :global {
+        .at-button {
+            border: 0 none transparent;
+            border-radius: 0;
+
+            button {
+                transition: background-color 0.3s;
+
+                &:active {
+                    background-color: #efefef;
+                }
+            }
+        }
+    }
+}
+
+.image {
+    width: 108px;
+    height: 108px;
+    overflow: hidden;
+    border-radius: 57px;
+    background-size: cover;
+    background-color: #ccc;
+    background-image: url($imgUrl+'/assets/images/noAvatar.png');
+    border: 6px solid #a6b8fc;
+}
+
+.con {
+    flex: 1;
+    margin-left: 24px;
+
+    .tag {
+        color: #fff;
+        border: 1PX #fff solid;
+        border-radius: 8px;
+        position: absolute;
+        right: 32px;
+        top: 24px;
+        font-size: 24px;
+        padding: 2px 10px 4px;
+    }
+}
+
+.name,
+.info {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.name {
+    font-size: 32px;
+    font-weight: bold;
+    color: #fff;
+    margin-top: 12px;
+}
+
+.info {
+    font-size: 28px;
+    color: #a6b8fc;
+    margin-top: 8px;
+}
+
+.title {
+    padding: 32px;
+    font-size: 24px;
+    color: #999;
+}
+
+.card {
+    background-color: #fff;
+}
+
+.showMore {
+    font-size: 28px;
+    text-align: center;
+    color: $blue;
+    padding: 32px 0;
+    border-top: 1PX solid #e8e8e8;
+    transition: background-color 0.3s;
+
+    &:active {
+        background-color: #efefef;
+    }
+}
+
+.infoCon {
+    padding-bottom: 34px;
+
+    view {
+        text-align: center;
+    }
+
+    .number {
+        font-size: 44px;
+        color: #333;
+        margin-top: 32px;
+        font-family: 'number', Arial, Helvetica, sans-serif;
+    }
+
+    .info {
+        font-size: 24px;
+        color: #999;
+        margin-top: 16px;
+    }
+}
+
+.list {
+    margin: 16px 0 32px;
+
+    :global {
+        .at-list__item {
+            padding: 28px 32px;
+
+            &::after {
+                border-bottom: 1PX solid #e8e8e8;
+            }
+        }
+
+        .at-list__item--thumb .item-thumb {
+            margin-right: 32px;
+        }
+
+        .at-list__item-content {
+            font-size: 32px;
+            color: #333;
+        }
+
+        .item-extra__info {
+            font-size: 32px;
+            margin-right: 8px;
+        }
+    }
+}
+
+.call {
+    border: 1PX solid $blue;
+    padding: 12px 20px 12px 52px;
+    border-radius: 30px;
+    color: $blue;
+    font-size: 24px;
+    margin-left: 48px;
+    background-size: 24px;
+    background-color: #fff;
+    background-image: url($imgUrl+'/assets/images/dh.png');
+    background-position: 16px center;
+    background-repeat: no-repeat;
+    transition: background-color 0.3s;
+
+    &:active {
+        background-color: lighten($blue, 33%);
+    }
+}
+
+.more,
+.share {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-right: 14px;
+    position: relative;
+    top: 7px;
+}
+
+.more {
+    background-image: url($imgUrl+'/assets/images/gd.png');
+}
+
+.share {
+    background-image: url($imgUrl+'/assets/images/fx.png');
+}
+
+.menu {
+    :global {
+        .at-action-sheet__header {
+            padding: 45px 0;
+            border-bottom: 1PX solid #fafafb;
+        }
+
+        .at-action-sheet__container {
+            background-color: #dadae0;
+
+            view {
+                background-color: #fff;
+            }
+
+            .at-action-sheet__footer:active,
+            .at-action-sheet__item:active {
+                background-color: #efefef;
+            }
+        }
+    }
+}
+
+.confirmContent {
+    font-size: 36px;
+    text-align: center;
+    padding-top: 44px;
+}
+
+.confirmIcon {
+    position: relative;
+    margin-right: 8px;
+    top: -6px;
+}

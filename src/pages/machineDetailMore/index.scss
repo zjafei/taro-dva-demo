@@ -1,0 +1,18 @@
+@import '../../base.scss';
+.card {
+  padding-top: 16px;
+}
+
+.image {
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  border-radius: 50px;
+  background-size: cover;
+  background-color: #ccc;
+  background-image: url($imgUrl+'/assets/images/noAvatar.png');
+}
+
+.editBtn {
+  margin: 32px;
+}

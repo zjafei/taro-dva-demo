@@ -1,0 +1,118 @@
+@import '../../base.scss';
+
+.con {
+  background-color: #f5f7fa;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.title {
+  font-size: 24px;
+  color: #999;
+  height: 88px;
+  line-height: 88px;
+  padding-left: 32px;
+}
+
+.footer {
+  display: flex;
+
+  & > view {
+    flex: 1;
+    height: 96px;
+    text-align: center;
+    font-size: 32px;
+    box-sizing: border-box;
+    line-height: 96px;
+    border-top: 1PX solid transparent;
+  }
+
+  & > view.close {
+    border-top-color: $color-border-base;
+    background-color: #fff;
+  }
+
+  & > view.ok {
+    border-top-color: $blue;
+    color: #fff;
+    background-color: $blue;
+  }
+}
+
+.item {
+  display: flex;
+  padding: 24px 32px;
+  transition: background-color 0.3s;
+  position: relative;
+  background-color: #fff;
+
+  &:active {
+    background-color: #efefef;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    transform-origin: center;
+    box-sizing: border-box;
+    pointer-events: none;
+    top: auto;
+    left: 32px;
+    right: 0;
+    bottom: 0;
+    transform: scaleY(0.5);
+    border-bottom: 1PX solid #e8e8e8;
+  }
+}
+
+.image {
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  border-radius: 50px;
+  background-size: cover;
+  background-color: #ccc;
+  background-image: url($imgUrl+'/assets/images/noAvatar.png');
+}
+
+.itemCon {
+  flex: 1;
+  margin-left: 24px;
+  position: relative;
+}
+
+.name,
+.contact {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.name {
+  font-size: 32px;
+  color: #333;
+  margin-right: 64px;
+  // font-weight: bold;
+}
+
+.contact {
+  font-size: 24px;
+  color: #666;
+  margin-top: 16px;
+  text {
+    margin-left: 16px;
+  }
+}
+
+.selected {
+  width: 36px;
+  height: 36px;
+  background-image: url($imgUrl+'/assets/images/selected.png');
+  background-size: cover;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}

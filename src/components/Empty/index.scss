@@ -1,0 +1,31 @@
+@import '../../base.scss';
+
+.con {
+  padding-top: 360px;
+  .icon {
+    width: 160px;
+    height: 160px;
+    border-radius: 80px;
+    background-color: #ccc;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url($imgUrl+'/assets/images/empty.png');
+    margin: 0 auto;
+  }
+
+  .title {
+    font-size: 32px;
+    color: #666;
+    text-align: center;
+    margin-top: 40px;
+  }
+
+  .info {
+    font-size: 24px;
+    color: #999;
+    text-align: center;
+    margin-top: 16px;
+    font-weight: 300;
+  }
+}

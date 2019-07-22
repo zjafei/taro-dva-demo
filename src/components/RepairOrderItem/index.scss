@@ -1,0 +1,90 @@
+@import '../../base.scss';
+
+.item {
+  display: flex;
+  padding: 24px 32px;
+  transition: background-color 0.3s;
+  position: relative;
+
+  &:active {
+    background-color: #efefef;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    transform-origin: center;
+    box-sizing: border-box;
+    pointer-events: none;
+    top: auto;
+    left: 32px;
+    right: 0;
+    bottom: 0;
+    transform: scaleY(0.5);
+    border-bottom: 1PX solid #e8e8e8;
+  }
+}
+
+.image {
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  border-radius: 50px;
+  background-size: cover;
+  background-color: #ccc;
+  background-image: url($imgUrl+'/assets/images/noRepairOrder.png');
+}
+
+.con {
+  flex: 1;
+  margin-left: 24px;
+  position: relative;
+
+  .tag {
+    color: $blue;
+    border: 1PX $blue solid;
+    border-radius: 8px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 24px;
+    padding: 2px 10px 4px;
+    background-color: #fff;
+  }
+}
+
+.name,
+.contact,
+.info {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.name {
+  font-size: 32px;
+  color: #333;
+  margin-right: 64px;
+  // font-weight: bold;
+}
+
+.contact {
+  font-size: 24px;
+  color: #666;
+  margin-top: 8px;
+}
+
+.info {
+  font-size: 24px;
+  color: #666;
+  margin-top: 4px;
+
+  view {
+    display: inline-block;
+    width: 50%;
+  }
+
+  text {
+    margin-right: 16px;
+  }
+}

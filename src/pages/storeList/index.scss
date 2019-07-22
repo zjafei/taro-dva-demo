@@ -1,0 +1,35 @@
+@import '../../base.scss';
+
+.title {
+  font-size: 24px;
+  color: #999;
+  padding: 32px;
+}
+
+.phone {
+  color: $blue;
+  font-weight: bold;
+}
+
+.list {
+  :global {
+    .at-list__item--thumb .item-thumb {
+      width: 100px;
+      height: 100px;
+      border-radius: 50px;
+      background-color: #ccc;
+      background-size: contain;
+      background-image: url($imgUrl+'/assets/images/avatar.png');
+      overflow: hidden;
+    }
+
+    .at-list__item-content {
+      margin-right: 0;
+    }
+
+    .at-list__item-extra {
+      width: 64px;
+      flex: 0 0 64px;
+    }
+  }
+}

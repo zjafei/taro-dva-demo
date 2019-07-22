@@ -1,0 +1,32 @@
+@import '../../base.scss';
+
+.verificationPage {
+  overflow: hidden;
+  .logo {
+    width: 248px;
+    height: 248px;
+    background-color: transparent;
+    background-size: contain;
+    margin: 144px auto 64px;
+    background-image: url($imgUrl+'/assets/images/verification@2x.png');
+  }
+
+  .bigBtn {
+    margin: 32px;
+    height: 96px;
+    font-size: 32px;
+    padding-top: 4px;
+    background-color: $green;
+    border-color: $green;
+  }
+
+  .info {
+    text-align: center;
+    font-size: 24px;
+    color: #999;
+
+    text {
+      margin-right: 10px;
+    }
+  }
+}

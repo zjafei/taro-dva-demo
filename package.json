@@ -1,0 +1,86 @@
+{
+  "name": "taro-dva",
+  "version": "0.2.0",
+  "private": true,
+  "description": "taro-dva",
+  "main": "index.js",
+  "scripts": {
+    "build:weapp": "taro build --type weapp",
+    "build:h5": "taro build --type h5",
+    "dev:weapp": "npm run build:weapp -- --watch",
+    "dev:h5": "npm run build:h5 -- --watch",
+    "page": "node pageTemplate",
+    "comp": "node componentsTemplate",
+    "lint-staged": "lint-staged",
+    "lint-staged:js": "eslint --fix --ext .js"
+  },
+  "author": "eric ma",
+  "license": "MIT",
+  "dependencies": {
+    "@tarojs/async-await": "^1.3.10",
+    "@tarojs/components": "^1.3.10",
+    "@tarojs/redux": "^1.3.10",
+    "@tarojs/redux-h5": "^1.3.10",
+    "@tarojs/router": "^1.3.10",
+    "@tarojs/taro": "^1.3.10",
+    "@tarojs/taro-h5": "^1.3.10",
+    "@tarojs/taro-weapp": "^1.3.10",
+    "babel-regenerator-runtime": "^6.5.0",
+    "dva-core": "^1.4.0",
+    "dva-loading": "^3.0.12",
+    "mockjs": "^1.0.1-beta3",
+    "moment": "^2.24.0",
+    "nervjs": "^1.4.3",
+    "path-to-regexp": "^3.0.0",
+    "react-redux": "^7.1.0",
+    "redux": "^4.0.4",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0",
+    "taro-ui": "^2.2.1"
+  },
+  "devDependencies": {
+    "@tarojs/cli": "^1.3.10",
+    "@tarojs/plugin-babel": "^1.3.10",
+    "@tarojs/plugin-csso": "^1.3.10",
+    "@tarojs/plugin-sass": "^1.3.10",
+    "@tarojs/plugin-uglifyjs": "^1.3.10",
+    "@tarojs/webpack-runner": "^1.3.10",
+    "@types/react": "^16.8.23",
+    "@types/webpack-env": "^1.14.0",
+    "babel-eslint": "^10.0.2",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-decorators-legacy": "^1.3.5",
+    "babel-plugin-transform-jsx-stylesheet": "^0.6.5",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.7.0",
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb": "^17.1.1",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-config-taro": "^1.3.10",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.14.2",
+    "eslint-plugin-taro": "^1.3.10",
+    "husky": "^3.0.1",
+    "lint-staged": "^9.2.0",
+    "prettier": "^1.18.2",
+    "shelljs": "^0.8.3",
+    "stylelint": "^10.1.0",
+    "stylelint-config-prettier": "^5.2.0",
+    "stylelint-config-standard": "^18.3.0"
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,css}": [
+      "prettier --write",
+      "git add"
+    ],
+    "**/*.{js,jsx}": "npm run lint-staged:js",
+    "**/*.scss": "stylelint --syntax scss"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint-staged"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+@import '../../base.scss';
+
+.form {
+  background-color: #fff;
+  form-item:last-child view::after {
+    display: none;
+  }
+}
+.submitCon {
+  margin: 32px;
+}
+
+.pickerLabel {
+  font-size: 32px;
+}

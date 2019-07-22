@@ -1,0 +1,408 @@
+@import '../../base.scss';
+
+page {
+    background-color: #004276;
+}
+
+.headCon {
+    padding-top: 24px;
+}
+
+.head {
+    margin: 0 24px;
+    background-color: #fff;
+    border-radius: 16px 16px 0 0;
+    padding: 24px;
+    box-sizing: border-box;
+    height: 224px;
+}
+
+.headName {
+    text-align: center;
+    font-size: 28px;
+    color: #666;
+}
+
+.headNameIcon {
+    top: 10px;
+    width: 40px;
+    height: 40px;
+    margin-right: 16px;
+    border-radius: 20px;
+    position: relative;
+    display: inline-block;
+    background-image: url($imgUrl+'/assets/images/avatar_blue.png');
+    background-size: contain;
+}
+
+.headTitle {
+    font-weight: bold;
+    text-align: center;
+    font-size: 44px;
+    color: #333;
+    padding: 20px 0;
+}
+
+.headInfo {
+    font-size: 24px;
+    color: #999;
+}
+
+.headCode {
+    text-align: right;
+}
+
+.title {
+    font-size: 24px;
+    color: #999;
+    text-align: center;
+    background-color: #e7eaf0;
+    padding: 10px 0;
+    margin: 0 24px;
+}
+
+.con {
+    margin: 0 24px;
+    background-color: #fff;
+    padding: 0 24px;
+}
+
+.info {
+    padding: 24px;
+
+    &>view>view {
+        border-bottom: 1PX $color-border-base solid;
+        box-sizing: border-box;
+        height: 128px;
+        padding-top: 16px;
+    }
+
+    .infoRight {
+        border-left: 1PX $color-border-base solid;
+        padding-left: 24px;
+    }
+
+    .infoEnd {
+        border-bottom: 1PX transparent solid;
+    }
+
+    .infoTitle {
+        font-size: 24px;
+        color: #999;
+        line-height: 1;
+    }
+
+    .infoCon {
+        font-size: 30px;
+        color: #666;
+        margin-top: 12px;
+
+        &>view {
+            display: none;
+            width: 24px;
+            height: 24px;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            background-image: url($imgUrl+'/assets/images/active.png');
+        }
+    }
+
+    .active {
+        transition: background-color 0.3s;
+
+        &:active {
+            background-color: #efefef;
+        }
+
+        .infoCon>view {
+            display: inline-block;
+        }
+    }
+}
+
+.noItem {
+    text-align: center;
+    font-size: 30px;
+    color: #CCC;
+    padding: 12px 0 44px;
+}
+
+.noItemIcon{
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  background-image: url($imgUrl+'/assets/images/noItem.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  position: relative;
+  top: 4px;
+  margin-right: 8px;
+}
+.itemList {
+    padding-top: 32px;
+}
+
+.itemListFoot {
+    border-top: 1PX solid $color-border-base;
+    padding: 32px 0;
+    font-size: 28px;
+    text-align: right;
+}
+
+.itemPrice {
+    flex: 3;
+    font-size: 34px;
+    font-family: 'number', Arial, Helvetica, sans-serif;
+
+    &>text::before {
+        content: '¥';
+        font-size: 28px;
+        margin-right: 4px;
+    }
+
+    &.red {
+        color: $red;
+
+        &>text::before {
+            content: '-¥';
+        }
+    }
+}
+
+.step {
+    padding: 24px;
+}
+
+.line {
+    height: 32px;
+    position: relative;
+
+    &::before,
+    &::after {
+        position: absolute;
+        content: '';
+        width: 32px;
+        height: 32px;
+        border-radius: 16px;
+        background-color: #004276;
+        top: 0;
+    }
+
+    &::before {
+        left: -16px;
+    }
+
+    &::after {
+        right: -16px;
+    }
+
+    &>view {
+        box-sizing: border-box;
+        height: 1PX;
+        border-top: 1PX dashed #ccc;
+        position: absolute;
+        margin: auto;
+        left: 32px;
+        right: 32px;
+        top: 0;
+        bottom: 0;
+    }
+}
+
+.tools {
+    background-color: #fff;
+    padding: 20px 0;
+    border-bottom: 16px solid #f5f7fa;
+
+    .tool {
+        text-align: center;
+        color: $blue;
+        font-size: 30px;
+        padding: 16px 0;
+        box-sizing: border-box;
+        border-left: 1PX solid $color-border-base;
+        transition: background-color 0.3s;
+
+        &:active {
+            background-color: #efefef;
+        }
+
+        &:first-child {
+            border-left: 1PX solid transparent;
+        }
+    }
+}
+
+.list {
+    border-bottom: 16px solid #f5f7fa;
+
+    :global {
+        .at-list__item {
+            padding: 28px 32px;
+
+            &::after {
+                border-bottom: 1PX solid #e8e8e8;
+            }
+        }
+
+        .at-list__item--thumb .item-thumb {
+            margin-right: 32px;
+        }
+
+        .at-list__item-content {
+            font-size: 32px;
+            color: #333;
+        }
+
+        .item-extra__info {
+            font-size: 32px;
+            margin-right: 8px;
+        }
+    }
+}
+
+.foot {
+    height: 96px;
+    box-sizing: border-box;
+    border-top: 1PX solid #e8e8e8;
+    text-align: center;
+    font-size: 32px;
+    line-height: 96px;
+    background-color: #fff;
+}
+
+.more,
+.share {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-right: 14px;
+    position: relative;
+    top: 7px;
+}
+
+.more {
+    background-image: url($imgUrl+'/assets/images/gd.png');
+}
+
+.share {
+    background-image: url($imgUrl+'/assets/images/fx.png');
+}
+
+.footEnd {
+    position: relative;
+
+    &::after {
+        position: absolute;
+        content: '';
+        width: 1PX;
+        background-color: #e8e8e8;
+        left: 0;
+        top: 20px;
+        bottom: 20px;
+        margin: auto;
+        display: block;
+    }
+
+    :global {
+        .at-button {
+            border: 0 none transparent;
+            border-radius: 0;
+
+            button {
+                transition: background-color 0.3s;
+
+                &:active {
+                    background-color: #efefef;
+                }
+            }
+        }
+    }
+}
+
+.bill {
+    background-color: $blue;
+    color: #fff;
+    box-sizing: border-box;
+    padding: 0 32px;
+    transition: background-color 0.3s;
+
+    &:active {
+        background-color: darken($blue, 10%);
+    }
+}
+
+.total {
+    font-size: 24px;
+    line-height: 32px;
+    text-align: left;
+    padding-top: 18px;
+}
+
+.icon {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url($imgUrl+'/assets/images/bill.png');
+    position: relative;
+    top: 8px;
+    margin-right: 8px;
+}
+
+.menu {
+    :global {
+        .at-action-sheet__header {
+            padding: 45px 0;
+            border-bottom: 1PX solid #fafafb;
+        }
+
+        .at-action-sheet__container {
+            background-color: #dadae0;
+
+            view {
+                background-color: #fff;
+            }
+
+            .at-action-sheet__footer:active,
+            .at-action-sheet__item:active {
+                background-color: #efefef;
+            }
+        }
+    }
+}
+
+.confirmContent {
+    font-size: 36px;
+    text-align: center;
+    padding-top: 44px;
+}
+
+.confirmIcon {
+    position: relative;
+    margin-right: 8px;
+    top: -6px;
+}
+
+.confirm {
+    :global {
+        .at-modal__header {
+            padding: 32px 24px;
+            font-size: 36px;
+            color: #333;
+        }
+
+        .at-modal__content {
+            font-size: 30px;
+            color: #999;
+            padding: 32px 40px;
+        }
+    }
+}

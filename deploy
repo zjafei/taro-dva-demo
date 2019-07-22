@@ -1,0 +1,117 @@
+#!/usr/bin/env node
+const shell = require('shelljs');
+const moment = require('moment');
+const fs = require('fs');
+const jData = require('./package.json');
+
+// 获取版本信息数组
+function getVersionList(version) {
+  const versionArr = version.split('.');
+  for (let i = 0; i < 3; i++) {
+    const tempNum = Number(versionArr[i]);
+    versionArr[i] = Number.isNaN(tempNum) ? 0 : tempNum;
+  }
+  return versionArr;
+}
+
+// 比价版本的大小
+function bigVersion(versionPer, versionNext) {
+  let isEnd = false;
+  const versionPerArr = getVersionList(versionPer);
+  const versionNextArr = getVersionList(versionNext);
+  let versionArr = versionPerArr.length > versionNextArr.length ? versionPerArr : versionNextArr;
+
+  versionArr.forEach((row, index) => {
+    if (isEnd === false) {
+      if (versionNextArr[index] > versionPerArr[index]) {
+        isEnd = true;
+        versionArr = versionNextArr;
+      }
+      if (row < versionPerArr[index]) {
+        isEnd = true;
+        versionArr = versionPerArr;
+      }
+    }
+  });
+
+  return versionArr.join('.');
+}
+
+// 根据分支类型处理版本号version
+function handleType(oldVersion, type) {
+  const oldVersionArr = getVersionList(oldVersion);
+  // 版本号第一位 如：1.2.3 则为 1
+  const firstNum = +oldVersionArr[0];
+  // 版本号第二位 如：1.2.3 则为 2
+  let secondNum = +oldVersionArr[1];
+  // 版本号第三位 如：1.2.3 则为 3
+  let thirdNum = +oldVersionArr[2];
+
+  switch (type) {
+    case 'release':
+      // release分支的处理逻辑
+      secondNum += 1;
+      break;
+    case 'hotfix':
+      // hotfix分支的处理逻辑
+      thirdNum += 1;
+      break;
+    default:
+      break;
+  }
+
+  return `${firstNum}.${secondNum}.${thirdNum}`;
+}
+
+function command(cmd) {
+  if (shell.exec(cmd).code !== 0) {
+    shell.echo(`Error: ${cmd}`);
+    shell.exit(1);
+  }
+}
+
+/** 命令行的所有参数 */
+const options = {};
+const argv = process.argv.slice(2);
+argv.forEach(row => {
+  const keyVal = row.split('=');
+  const [key, value] = keyVal;
+  options[key] = value || null;
+});
+
+const oldVersion = jData.version || '0.0.0';
+
+const splitLine = '==================================';
+const now = moment().format('YYYY-MM-DD_HH-mm-ss');
+
+function copyToStatic(){
+  shell.echo(splitLine);
+  shell.echo('Copy assets to server:');
+  shell.echo(splitLine);
+  command('scp -r ./src/assets/* dev@0.0.0.0:/path/to/your/assets');
+  shell.echo('Copy completed!');
+}
+
+function updateVersion() {
+  let version = bigVersion(oldVersion, options.tag || ''); // 强制新版本
+  const type = options.type || 'release'; // 提交类型
+
+  if (version === oldVersion) {
+    version = handleType(oldVersion, type);
+  }
+  jData.version = version;
+  const message = options.message || `v${version} for ${type}`;
+
+  fs.writeFileSync('package.json', JSON.stringify(jData, null, 2));
+  shell.echo(`项目版本更新为：${version}`);
+  command('git add .');
+  command(`git commit -m 'create new tag v${version} ${message}'`);
+  command(`git tag -a v${version} -m '${message}'`);
+  command(`git push team v${version}`);
+}
+
+if (options.scp !== undefined) {
+  copyToStatic();
+  return;
+}
+updateVersion();

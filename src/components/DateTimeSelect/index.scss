@@ -1,0 +1,47 @@
+@import '../../base.scss';
+
+.con {
+  background-color: #f5f7fa;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.title {
+  font-size: 24px;
+  color: #999;
+  height: 88px;
+  line-height: 88px;
+  padding-left: 32px;
+}
+
+.body {
+  form-item:last-child view::after {
+    display: none;
+  }
+}
+
+.footer {
+  display: flex;
+
+  & > view {
+    flex: 1;
+    height: 96px;
+    text-align: center;
+    font-size: 32px;
+    box-sizing: border-box;
+    line-height: 96px;
+    border-top: 1PX solid transparent;
+  }
+
+  & > view.close {
+    border-top-color: $color-border-base;
+    background-color: #fff;
+  }
+
+  & > view.ok {
+    border-top-color: $blue;
+    color: #fff;
+    background-color: $blue;
+  }
+}

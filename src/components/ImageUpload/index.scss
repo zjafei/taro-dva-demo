@@ -1,0 +1,46 @@
+@import '../../base.scss';
+
+.box {
+  width: 112px;
+  height: 112px;
+  border: 1PX solid #e2e2e2;
+  background-color: #fff;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 8px;
+  display: inline-block;
+  margin-right: 16px;
+  position: relative;
+}
+.picker {
+  background-image: url($imgUrl+'/assets/images/imageUpload.png');
+  background-size: 48px;
+
+  &:active {
+    background-color: #efefef;
+  }
+}
+.image {
+  background-size: cover;
+}
+.close {
+  position: absolute;
+  right: -16px;
+  top: -16px;
+  width: 48px;
+  height: 48px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url($imgUrl+'/assets/images/close.png');
+}
+.progress {
+  position: absolute;
+  left: 0;
+  right: 0;
+  text-align: center;
+  top: 38px;
+  margin: auto;
+  font-size: 28px;
+  color: $red;
+}

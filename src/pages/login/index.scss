@@ -1,0 +1,45 @@
+@import '../../base.scss';
+
+.loginPage {
+  overflow: hidden;
+  .logo {
+    width: 248px;
+    height: 248px;
+    background-color: transparent;
+    background-size: contain;
+    margin: 144px auto 64px;
+    background-image: url($imgUrl+'/assets/images/logo0@2x.png');
+  }
+
+  .bigBtn {
+    margin: 32px;
+    height: 96px;
+    font-size: 32px;
+    padding-top: 4px;
+    background-color: $green;
+    border-color: $green;
+
+    .icon {
+      display: inline-block;
+      width: 44px;
+      height: 36px;
+      background-image: url($imgUrl+'/assets/images/wx@2x.png');
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      margin-right: 8px;
+      position: relative;
+      top: 6px;
+    }
+  }
+
+  .info {
+    text-align: center;
+    font-size: 24px;
+    color: #999;
+
+    text {
+      margin-right: 10px;
+    }
+  }
+}
